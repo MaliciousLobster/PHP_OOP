@@ -1,4 +1,36 @@
 <?php
+//-----------------------------------LECTURE 2------------------------------------------
+	//ex.1
+	class Computer{
+		public $brand;
+		public $OS;
+		public $processor;
+
+		function __construct($brand, $OS, $processor){
+			$this->brand = $brand;
+			$this->OS = $OS;
+			$this->processor = $processor;
+		}
+		function Specs(){
+			return "{$this->brand}" . "{$this->processor}";
+		}
+	}
+	class Pencil{
+		public $brand;
+		public $leadType;
+
+		function __construct($brand, $leadType){
+			$this->brand = $brand;
+			$this->leadType = $leadType;
+		}
+		function WhatPencil(){
+			return "{$this->brand}" . "{$this->leadType}";
+		}
+	}
+	
+
+
+//-----------------------------------LECTURE 1------------------------------------------
 	//ex. 1
 	class Computer{
 		//class body
@@ -42,6 +74,7 @@
 		public function DoThisFor($item){
 			//stuff
 		}
+	}
 	class color{
 		public $quality;
 		public function whatIs($quality){
@@ -90,7 +123,7 @@
 
 	echo "This computer has {$schoolcomputer->Specs()}";
 
-	class Phone{}
+	class Phone{
 		public $price;
 		public $OS;
 		public $brand;
