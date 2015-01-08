@@ -27,6 +27,21 @@
 			return "{$this->brand}" . "{$this->leadType}";
 		}
 	}
+	class Phone{
+		public $price;
+		public $OS;
+		public $serviceProvider;
+
+		function __construct($price, $OS, $serviceProvider){
+			$this->price = $price;
+			$this->OS = $OS;
+			$this->serviceProvider = $serviceProvider;
+		}
+		function phone(){
+			return "{$this->price}" . "{$this->serviceProvider}";
+		}
+	}
+	
 	
 
 
