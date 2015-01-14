@@ -14,10 +14,10 @@
 			$this->brand = $brand;
 		}
 		public function provider(){
-			return "{$this->price} " . "{$this->serviceProvider}";
+			return $this->price . " " . $this->serviceProvider;
 		}
 		public function specs(){
-			return "{$this->OS} " . "{$this->screenType}";
+			return $this->OS . " " . $this->screenType;
 		} 
 	}
 	
