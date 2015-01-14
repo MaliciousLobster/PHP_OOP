@@ -8,12 +8,10 @@
 		public $engine;
 		public $budget;
 
-		function __construct($developer, $genre, $platform, $engine, $budget) {
+		function __construct($developer, $genre, $platform) {
 			$this->developer = $developer;
 			$this->genre = $genre;
 			$this->platform = $platform;
-			$this->engine = $engine;
-			$this->budget = $budget;
 		}
 
 		function getInfo(){
@@ -22,11 +20,19 @@
 	}
 
 	class engine extends videoGame {
+		function construct($developer, $genre, $platform, $engine){
+			parent::__construct($developer, $genre, $platform);
+			$this->engine = $engine;
+		}
 		function moreInfo(){
 			return "I run on the " . $this->engine;
 		}
 	}
 	class cost extends videoGame {
+		function __construct($developer, $genre, $platform, $budget){
+			parent::__construct($developer, $genre, $platform);
+			$this->budget = $budget;	
+		}
 		function funds(){
 			return "We had a budget of " . $this->budget . " dollars";
 		}
@@ -44,17 +50,17 @@
 		public $sold;
 		public $cost;
 		public $type;
-		public $pants;
 		public $shirts;
+		public $pants;
 
-		function __construct($material, $brand, $sold, $cost, $type, $pants, $shirts){
+
+		function __construct($material, $brand, $sold, $cost, $type){
 			$this->material = $material;
 			$this->brand = $brand;
 			$this->sold = $sold;
 			$this->cost = $cost;
 			$this->type = $type;
-			$this->pants = $pants;
-			$this->shirts = $shirts;
+
 		}
 		function wear(){
 			return "I am made with " . $this->material . " and I am made by " . $this->brand;
@@ -62,11 +68,19 @@
 
 	}
 	class Pants extends Clothes{
+		function __construct($material, $brand, $sold, $cost, $type, $pants){
+			parent::__construct($material, $brand, $sold, $cost, $type); 
+			$this->pants = $pants;
+		}
 		function article(){
 			return "I am a pair of " . $this->pants; 
 		}
 	}
 	class Shirts extends Clothes{
+		function __construct($material, $brand, $sold, $cost, $type, $shirts){
+			parent::__construct($material, $brand, $sold, $cost, $type);
+			$this->shirts = $shirts;
+		}
 		function blegh(){
 			return "I am a " . $this->shirts . " shirt.";
 		}
@@ -84,11 +98,9 @@
 		public $color;
 		public $caseSize;
 
-		function __construct($brand, $flavor, $numPack, $color, $caseSize){
-			$this->brand = $brand;
+		function __construct($flavor, $numPack, $caseSize){
 			$this->flavor = $flavor;
 			$this->numPack = $numPack;
-			$this->color = $color;
 			$this->caseSize = $caseSize;
 		}
 		function Taste(){
@@ -96,11 +108,19 @@
 		}
 	}
 	class Candy extends Gum{
+		function __construct($brand, $flavor, $numPack, $caseSize){
+			parent::__construct($flavor, $numPack, $caseSize);
+			$this->brand = $brand;
+		}
 		function madeBy(){
 			return "I am made by " . $this->brand;
 		}
 	}
 	class Sweet extends Gum{
+		function __construct($flavor, $numPack,  $caseSize){
+			parent::__construct($flavor, $numPack, $caseSize);
+			$this->color = $color;
+		}
 		function Color(){	
 			return "I am " . $this->color;
 		}
